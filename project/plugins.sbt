@@ -16,3 +16,7 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-digest" % "1.1.0")
 addSbtPlugin("com.typesafe.sbt" % "sbt-mocha" % "1.1.0")
 
 addSbtPlugin("org.irundaia.sbt" % "sbt-sassify" % "1.4.2")
+
+libraryDependencies += jdbc
+
+libraryDependencies += "com.typesafe.play" %% "play-slick" % "2.0.0"
