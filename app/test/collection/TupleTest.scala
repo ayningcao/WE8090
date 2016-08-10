@@ -2,7 +2,7 @@ package test.collection
 
 /**
  * Scala Tuple, Scala元组
- *
+ *xz
  * Created by caowenjun763 on 2016/7/14.
  */
 object TupleTest {
