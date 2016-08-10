@@ -1,5 +1,7 @@
 package test.fpinscala
 
+import java.util.Date
+
 /**
  * Created by caowenjun763 on 2016/8/10.
  */
@@ -9,7 +11,7 @@ object Exercise2_2 {
     require(as.length >= 2)
 
     def loop(n: Int): Boolean = {
-      if (n >= as.length) true
+      if (n >= as.length - 1) true
       else if (ordered(as(n), as(n + 1))) loop(n + 1)
       else false
     }
@@ -18,11 +20,35 @@ object Exercise2_2 {
   }
 
   def main(args: Array[String]) {
-    val a = Array(1)
-    println(isSorted(Array(1), compare))
+    val before = new Date
+    Thread.sleep(1000)
+    val after = new Date()
+
+    val arr = Array(new Item(after, 11, "Alex"), new Item(after, 13, "James"), new Item(before, 13, "Zames"))
+    println(isSorted(arr, compare))
   }
 
-  def compare(x: Int, y: Int): Boolean = {
-    x >= y
+  //  def compare(x: Int, y: Int): Boolean = {
+  //    x <= y
+  //  }
+
+  /**
+   * 依次按照date, age和name排序
+   *
+   * @param x
+   * @param y
+   * @return
+   */
+  def compare(x: Item, y: Item): Boolean = {
+    x.date.compareTo(y.date) match {
+      case 0 => x.age.compareTo(y.age) match {
+        case 0 => x.name.compareTo(y.name) >= 0
+        case x => x >= 0
+      }
+      case x => x >= 0
+    }
   }
 }
+
+
+class Item(val date: Date, val age: Int, val name: String) {}
