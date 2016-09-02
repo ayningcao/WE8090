@@ -22,9 +22,11 @@ import scala.collection.mutable.ListBuffer
  */
 object Lian {
 
-  val url: String = "http://lianhanghao.com/index.php"
+  val host: String = "http://lianhanghao.com"
 
-  val cityUrl: String = "http://lianhanghao.com/area.php"
+  val url: String = host + "/index.php"
+
+  val cityUrl: String = host + "/area.php"
 
   /**
    * 获取全部银行列表
